@@ -62,6 +62,21 @@ const CreateArticlePages = () => {
                         </span>
                         )}
                 </div>
+                <div className="space-y-2">
+                    <Label htmlFor="featuredImage">Featured Image</Label>
+                        <Input
+                            id="featuredImage"
+                            name="featuredImage"
+                            type="file"
+                            accept="image/*"
+                        />
+                        {formState.errors.featuredImage && (
+                            <span className="font-medium text-sm text-red-500">
+                            {formState.errors.featuredImage}
+                            </span>
+                    )}
+                </div>
+
                 
                 <div className="space-y-2">
                     <Label>Content</Label>
