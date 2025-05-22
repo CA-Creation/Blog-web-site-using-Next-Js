@@ -4591,6 +4591,7 @@ export namespace Prisma {
     id: string | null
     userId: string | null
     articleId: string | null
+    isLiked: boolean | null
     createdAt: Date | null
   }
 
@@ -4598,6 +4599,7 @@ export namespace Prisma {
     id: string | null
     userId: string | null
     articleId: string | null
+    isLiked: boolean | null
     createdAt: Date | null
   }
 
@@ -4605,6 +4607,7 @@ export namespace Prisma {
     id: number
     userId: number
     articleId: number
+    isLiked: number
     createdAt: number
     _all: number
   }
@@ -4614,6 +4617,7 @@ export namespace Prisma {
     id?: true
     userId?: true
     articleId?: true
+    isLiked?: true
     createdAt?: true
   }
 
@@ -4621,6 +4625,7 @@ export namespace Prisma {
     id?: true
     userId?: true
     articleId?: true
+    isLiked?: true
     createdAt?: true
   }
 
@@ -4628,6 +4633,7 @@ export namespace Prisma {
     id?: true
     userId?: true
     articleId?: true
+    isLiked?: true
     createdAt?: true
     _all?: true
   }
@@ -4708,6 +4714,7 @@ export namespace Prisma {
     id: string
     userId: string
     articleId: string
+    isLiked: boolean
     createdAt: Date
     _count: LikeCountAggregateOutputType | null
     _min: LikeMinAggregateOutputType | null
@@ -4732,6 +4739,7 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     articleId?: boolean
+    isLiked?: boolean
     createdAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     article?: boolean | ArticlesDefaultArgs<ExtArgs>
@@ -4741,6 +4749,7 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     articleId?: boolean
+    isLiked?: boolean
     createdAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     article?: boolean | ArticlesDefaultArgs<ExtArgs>
@@ -4750,6 +4759,7 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     articleId?: boolean
+    isLiked?: boolean
     createdAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     article?: boolean | ArticlesDefaultArgs<ExtArgs>
@@ -4759,10 +4769,11 @@ export namespace Prisma {
     id?: boolean
     userId?: boolean
     articleId?: boolean
+    isLiked?: boolean
     createdAt?: boolean
   }
 
-  export type LikeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "articleId" | "createdAt", ExtArgs["result"]["like"]>
+  export type LikeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "articleId" | "isLiked" | "createdAt", ExtArgs["result"]["like"]>
   export type LikeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     article?: boolean | ArticlesDefaultArgs<ExtArgs>
@@ -4786,6 +4797,7 @@ export namespace Prisma {
       id: string
       userId: string
       articleId: string
+      isLiked: boolean
       createdAt: Date
     }, ExtArgs["result"]["like"]>
     composites: {}
@@ -5215,6 +5227,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Like", 'String'>
     readonly userId: FieldRef<"Like", 'String'>
     readonly articleId: FieldRef<"Like", 'String'>
+    readonly isLiked: FieldRef<"Like", 'Boolean'>
     readonly createdAt: FieldRef<"Like", 'DateTime'>
   }
     
@@ -5684,6 +5697,7 @@ export namespace Prisma {
     id: 'id',
     userId: 'userId',
     articleId: 'articleId',
+    isLiked: 'isLiked',
     createdAt: 'createdAt'
   };
 
@@ -5744,6 +5758,13 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -5966,6 +5987,7 @@ export namespace Prisma {
     id?: StringFilter<"Like"> | string
     userId?: StringFilter<"Like"> | string
     articleId?: StringFilter<"Like"> | string
+    isLiked?: BoolFilter<"Like"> | boolean
     createdAt?: DateTimeFilter<"Like"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     article?: XOR<ArticlesScalarRelationFilter, ArticlesWhereInput>
@@ -5975,6 +5997,7 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     articleId?: SortOrder
+    isLiked?: SortOrder
     createdAt?: SortOrder
     user?: UserOrderByWithRelationInput
     article?: ArticlesOrderByWithRelationInput
@@ -5988,6 +6011,7 @@ export namespace Prisma {
     NOT?: LikeWhereInput | LikeWhereInput[]
     userId?: StringFilter<"Like"> | string
     articleId?: StringFilter<"Like"> | string
+    isLiked?: BoolFilter<"Like"> | boolean
     createdAt?: DateTimeFilter<"Like"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     article?: XOR<ArticlesScalarRelationFilter, ArticlesWhereInput>
@@ -5997,6 +6021,7 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     articleId?: SortOrder
+    isLiked?: SortOrder
     createdAt?: SortOrder
     _count?: LikeCountOrderByAggregateInput
     _max?: LikeMaxOrderByAggregateInput
@@ -6010,6 +6035,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Like"> | string
     userId?: StringWithAggregatesFilter<"Like"> | string
     articleId?: StringWithAggregatesFilter<"Like"> | string
+    isLiked?: BoolWithAggregatesFilter<"Like"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Like"> | Date | string
   }
 
@@ -6221,6 +6247,7 @@ export namespace Prisma {
 
   export type LikeCreateInput = {
     id?: string
+    isLiked?: boolean
     createdAt?: Date | string
     user: UserCreateNestedOneWithoutLikesInput
     article: ArticlesCreateNestedOneWithoutLikesInput
@@ -6230,11 +6257,13 @@ export namespace Prisma {
     id?: string
     userId: string
     articleId: string
+    isLiked?: boolean
     createdAt?: Date | string
   }
 
   export type LikeUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    isLiked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutLikesNestedInput
     article?: ArticlesUpdateOneRequiredWithoutLikesNestedInput
@@ -6244,6 +6273,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     articleId?: StringFieldUpdateOperationsInput | string
+    isLiked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -6251,11 +6281,13 @@ export namespace Prisma {
     id?: string
     userId: string
     articleId: string
+    isLiked?: boolean
     createdAt?: Date | string
   }
 
   export type LikeUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
+    isLiked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -6263,6 +6295,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     articleId?: StringFieldUpdateOperationsInput | string
+    isLiked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -6483,6 +6516,11 @@ export namespace Prisma {
     createdAt?: SortOrder
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type LikeUserIdArticleIdCompoundUniqueInput = {
     userId: string
     articleId: string
@@ -6492,6 +6530,7 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     articleId?: SortOrder
+    isLiked?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -6499,6 +6538,7 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     articleId?: SortOrder
+    isLiked?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -6506,7 +6546,16 @@ export namespace Prisma {
     id?: SortOrder
     userId?: SortOrder
     articleId?: SortOrder
+    isLiked?: SortOrder
     createdAt?: SortOrder
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type ArticlesCreateNestedManyWithoutAuthorInput = {
@@ -6785,6 +6834,10 @@ export namespace Prisma {
     connect?: ArticlesWhereUniqueInput
   }
 
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
   export type UserUpdateOneRequiredWithoutLikesNestedInput = {
     create?: XOR<UserCreateWithoutLikesInput, UserUncheckedCreateWithoutLikesInput>
     connectOrCreate?: UserCreateOrConnectWithoutLikesInput
@@ -6910,6 +6963,19 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type ArticlesCreateWithoutAuthorInput = {
     id?: string
     title: string
@@ -6968,6 +7034,7 @@ export namespace Prisma {
 
   export type LikeCreateWithoutUserInput = {
     id?: string
+    isLiked?: boolean
     createdAt?: Date | string
     article: ArticlesCreateNestedOneWithoutLikesInput
   }
@@ -6975,6 +7042,7 @@ export namespace Prisma {
   export type LikeUncheckedCreateWithoutUserInput = {
     id?: string
     articleId: string
+    isLiked?: boolean
     createdAt?: Date | string
   }
 
@@ -7067,6 +7135,7 @@ export namespace Prisma {
     id?: StringFilter<"Like"> | string
     userId?: StringFilter<"Like"> | string
     articleId?: StringFilter<"Like"> | string
+    isLiked?: BoolFilter<"Like"> | boolean
     createdAt?: DateTimeFilter<"Like"> | Date | string
   }
 
@@ -7123,6 +7192,7 @@ export namespace Prisma {
 
   export type LikeCreateWithoutArticleInput = {
     id?: string
+    isLiked?: boolean
     createdAt?: Date | string
     user: UserCreateNestedOneWithoutLikesInput
   }
@@ -7130,6 +7200,7 @@ export namespace Prisma {
   export type LikeUncheckedCreateWithoutArticleInput = {
     id?: string
     userId: string
+    isLiked?: boolean
     createdAt?: Date | string
   }
 
@@ -7467,6 +7538,7 @@ export namespace Prisma {
   export type LikeCreateManyUserInput = {
     id?: string
     articleId: string
+    isLiked?: boolean
     createdAt?: Date | string
   }
 
@@ -7524,6 +7596,7 @@ export namespace Prisma {
 
   export type LikeUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    isLiked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     article?: ArticlesUpdateOneRequiredWithoutLikesNestedInput
   }
@@ -7531,12 +7604,14 @@ export namespace Prisma {
   export type LikeUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     articleId?: StringFieldUpdateOperationsInput | string
+    isLiked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type LikeUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     articleId?: StringFieldUpdateOperationsInput | string
+    isLiked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -7550,6 +7625,7 @@ export namespace Prisma {
   export type LikeCreateManyArticleInput = {
     id?: string
     userId: string
+    isLiked?: boolean
     createdAt?: Date | string
   }
 
@@ -7576,6 +7652,7 @@ export namespace Prisma {
 
   export type LikeUpdateWithoutArticleInput = {
     id?: StringFieldUpdateOperationsInput | string
+    isLiked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutLikesNestedInput
   }
@@ -7583,12 +7660,14 @@ export namespace Prisma {
   export type LikeUncheckedUpdateWithoutArticleInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
+    isLiked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type LikeUncheckedUpdateManyWithoutArticleInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
+    isLiked?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 

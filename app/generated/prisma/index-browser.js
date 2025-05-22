@@ -151,6 +151,7 @@ exports.Prisma.LikeScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
   articleId: 'articleId',
+  isLiked: 'isLiked',
   createdAt: 'createdAt'
 };
 

@@ -56,7 +56,7 @@ export const EditArticle = async (
         };
     }
 
-    // Find the existing article
+
     const existingArticle = await prisma.articles.findUnique({
         where: { id: articleId },
     });

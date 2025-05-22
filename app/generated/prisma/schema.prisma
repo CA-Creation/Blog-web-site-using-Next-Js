@@ -55,6 +55,7 @@ model Like {
   userId    String
   article   Articles @relation(fields: [articleId], references: [id])
   articleId String
+  isLiked   Boolean  @default(true)
   createdAt DateTime @default(now())
 
   @@unique([userId, articleId])
