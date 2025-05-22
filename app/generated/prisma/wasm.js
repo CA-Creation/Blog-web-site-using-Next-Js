@@ -125,7 +125,8 @@ exports.Prisma.UserScalarFieldEnum = {
   clerkUserId: 'clerkUserId',
   email: 'email',
   name: 'name',
-  imageUrl: 'imageUrl'
+  imageUrl: 'imageUrl',
+  role: 'role'
 };
 
 exports.Prisma.ArticlesScalarFieldEnum = {

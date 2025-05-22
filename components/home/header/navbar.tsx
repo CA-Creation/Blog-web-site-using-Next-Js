@@ -6,6 +6,7 @@ import SearchInput from './search-input'
 import ToggleMode from './toggle-mode'
 import { Menu, Search, X } from 'lucide-react'
 import { Input } from '@/components/ui/input'
+import { SignedIn, SignedOut, SignInButton, SignOutButton, SignUpButton, UserButton } from '@clerk/nextjs'
 
 const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -45,10 +46,21 @@ const Navbar = () => {
                         <SearchInput />
 
                         <ToggleMode />
-                        <div className='hidden md:flex items-center gap-2'>
-                            <Button>Login</Button>
-                            <Button>Singup</Button>
-                        </div>
+                        {/*User action */}
+                        <SignedIn>
+                            <UserButton/>
+                        </SignedIn>
+
+                        <SignedOut>
+                            <div className='hidden md:flex items-center gap-2'>
+                                <SignInButton>
+                                    <Button variant={'outline'}>Login</Button>
+                                </SignInButton>
+                                <SignUpButton>
+                                    <Button>Singup</Button>
+                                </SignUpButton>
+                            </div>
+                        </SignedOut>
                     </div>
                     {/*Mobile Menu */}
                     <Button variant={'outline'} size={'icon'} className='md:hidden text-muted-foreground hover:text-foreground'

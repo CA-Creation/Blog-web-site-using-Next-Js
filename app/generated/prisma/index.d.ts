@@ -1246,6 +1246,7 @@ export namespace Prisma {
     email: string | null
     name: string | null
     imageUrl: string | null
+    role: string | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -1254,6 +1255,7 @@ export namespace Prisma {
     email: string | null
     name: string | null
     imageUrl: string | null
+    role: string | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -1262,6 +1264,7 @@ export namespace Prisma {
     email: number
     name: number
     imageUrl: number
+    role: number
     _all: number
   }
 
@@ -1272,6 +1275,7 @@ export namespace Prisma {
     email?: true
     name?: true
     imageUrl?: true
+    role?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -1280,6 +1284,7 @@ export namespace Prisma {
     email?: true
     name?: true
     imageUrl?: true
+    role?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -1288,6 +1293,7 @@ export namespace Prisma {
     email?: true
     name?: true
     imageUrl?: true
+    role?: true
     _all?: true
   }
 
@@ -1369,6 +1375,7 @@ export namespace Prisma {
     email: string
     name: string
     imageUrl: string | null
+    role: string
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
@@ -1394,6 +1401,7 @@ export namespace Prisma {
     email?: boolean
     name?: boolean
     imageUrl?: boolean
+    role?: boolean
     articles?: boolean | User$articlesArgs<ExtArgs>
     comments?: boolean | User$commentsArgs<ExtArgs>
     likes?: boolean | User$likesArgs<ExtArgs>
@@ -1406,6 +1414,7 @@ export namespace Prisma {
     email?: boolean
     name?: boolean
     imageUrl?: boolean
+    role?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1414,6 +1423,7 @@ export namespace Prisma {
     email?: boolean
     name?: boolean
     imageUrl?: boolean
+    role?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
@@ -1422,9 +1432,10 @@ export namespace Prisma {
     email?: boolean
     name?: boolean
     imageUrl?: boolean
+    role?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clerkUserId" | "email" | "name" | "imageUrl", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clerkUserId" | "email" | "name" | "imageUrl" | "role", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     articles?: boolean | User$articlesArgs<ExtArgs>
     comments?: boolean | User$commentsArgs<ExtArgs>
@@ -1447,6 +1458,7 @@ export namespace Prisma {
       email: string
       name: string
       imageUrl: string | null
+      role: string
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -1878,6 +1890,7 @@ export namespace Prisma {
     readonly email: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
     readonly imageUrl: FieldRef<"User", 'String'>
+    readonly role: FieldRef<"User", 'String'>
   }
     
 
@@ -5636,7 +5649,8 @@ export namespace Prisma {
     clerkUserId: 'clerkUserId',
     email: 'email',
     name: 'name',
-    imageUrl: 'imageUrl'
+    imageUrl: 'imageUrl',
+    role: 'role'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -5759,6 +5773,7 @@ export namespace Prisma {
     email?: StringFilter<"User"> | string
     name?: StringFilter<"User"> | string
     imageUrl?: StringNullableFilter<"User"> | string | null
+    role?: StringFilter<"User"> | string
     articles?: ArticlesListRelationFilter
     comments?: CommentListRelationFilter
     likes?: LikeListRelationFilter
@@ -5770,6 +5785,7 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrder
     imageUrl?: SortOrderInput | SortOrder
+    role?: SortOrder
     articles?: ArticlesOrderByRelationAggregateInput
     comments?: CommentOrderByRelationAggregateInput
     likes?: LikeOrderByRelationAggregateInput
@@ -5784,6 +5800,7 @@ export namespace Prisma {
     NOT?: UserWhereInput | UserWhereInput[]
     name?: StringFilter<"User"> | string
     imageUrl?: StringNullableFilter<"User"> | string | null
+    role?: StringFilter<"User"> | string
     articles?: ArticlesListRelationFilter
     comments?: CommentListRelationFilter
     likes?: LikeListRelationFilter
@@ -5795,6 +5812,7 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrder
     imageUrl?: SortOrderInput | SortOrder
+    role?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
@@ -5809,6 +5827,7 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"User"> | string
     name?: StringWithAggregatesFilter<"User"> | string
     imageUrl?: StringNullableWithAggregatesFilter<"User"> | string | null
+    role?: StringWithAggregatesFilter<"User"> | string
   }
 
   export type ArticlesWhereInput = {
@@ -6000,6 +6019,7 @@ export namespace Prisma {
     email: string
     name: string
     imageUrl?: string | null
+    role?: string
     articles?: ArticlesCreateNestedManyWithoutAuthorInput
     comments?: CommentCreateNestedManyWithoutAuthorInput
     likes?: LikeCreateNestedManyWithoutUserInput
@@ -6011,6 +6031,7 @@ export namespace Prisma {
     email: string
     name: string
     imageUrl?: string | null
+    role?: string
     articles?: ArticlesUncheckedCreateNestedManyWithoutAuthorInput
     comments?: CommentUncheckedCreateNestedManyWithoutAuthorInput
     likes?: LikeUncheckedCreateNestedManyWithoutUserInput
@@ -6022,6 +6043,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: StringFieldUpdateOperationsInput | string
     articles?: ArticlesUpdateManyWithoutAuthorNestedInput
     comments?: CommentUpdateManyWithoutAuthorNestedInput
     likes?: LikeUpdateManyWithoutUserNestedInput
@@ -6033,6 +6055,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: StringFieldUpdateOperationsInput | string
     articles?: ArticlesUncheckedUpdateManyWithoutAuthorNestedInput
     comments?: CommentUncheckedUpdateManyWithoutAuthorNestedInput
     likes?: LikeUncheckedUpdateManyWithoutUserNestedInput
@@ -6044,6 +6067,7 @@ export namespace Prisma {
     email: string
     name: string
     imageUrl?: string | null
+    role?: string
   }
 
   export type UserUpdateManyMutationInput = {
@@ -6052,6 +6076,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: StringFieldUpdateOperationsInput | string
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -6060,6 +6085,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: StringFieldUpdateOperationsInput | string
   }
 
   export type ArticlesCreateInput = {
@@ -6311,6 +6337,7 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrder
     imageUrl?: SortOrder
+    role?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
@@ -6319,6 +6346,7 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrder
     imageUrl?: SortOrder
+    role?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -6327,6 +6355,7 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrder
     imageUrl?: SortOrder
+    role?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -7047,6 +7076,7 @@ export namespace Prisma {
     email: string
     name: string
     imageUrl?: string | null
+    role?: string
     comments?: CommentCreateNestedManyWithoutAuthorInput
     likes?: LikeCreateNestedManyWithoutUserInput
   }
@@ -7057,6 +7087,7 @@ export namespace Prisma {
     email: string
     name: string
     imageUrl?: string | null
+    role?: string
     comments?: CommentUncheckedCreateNestedManyWithoutAuthorInput
     likes?: LikeUncheckedCreateNestedManyWithoutUserInput
   }
@@ -7129,6 +7160,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: StringFieldUpdateOperationsInput | string
     comments?: CommentUpdateManyWithoutAuthorNestedInput
     likes?: LikeUpdateManyWithoutUserNestedInput
   }
@@ -7139,6 +7171,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: StringFieldUpdateOperationsInput | string
     comments?: CommentUncheckedUpdateManyWithoutAuthorNestedInput
     likes?: LikeUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -7181,6 +7214,7 @@ export namespace Prisma {
     email: string
     name: string
     imageUrl?: string | null
+    role?: string
     articles?: ArticlesCreateNestedManyWithoutAuthorInput
     likes?: LikeCreateNestedManyWithoutUserInput
   }
@@ -7191,6 +7225,7 @@ export namespace Prisma {
     email: string
     name: string
     imageUrl?: string | null
+    role?: string
     articles?: ArticlesUncheckedCreateNestedManyWithoutAuthorInput
     likes?: LikeUncheckedCreateNestedManyWithoutUserInput
   }
@@ -7244,6 +7279,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: StringFieldUpdateOperationsInput | string
     articles?: ArticlesUpdateManyWithoutAuthorNestedInput
     likes?: LikeUpdateManyWithoutUserNestedInput
   }
@@ -7254,6 +7290,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: StringFieldUpdateOperationsInput | string
     articles?: ArticlesUncheckedUpdateManyWithoutAuthorNestedInput
     likes?: LikeUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -7297,6 +7334,7 @@ export namespace Prisma {
     email: string
     name: string
     imageUrl?: string | null
+    role?: string
     articles?: ArticlesCreateNestedManyWithoutAuthorInput
     comments?: CommentCreateNestedManyWithoutAuthorInput
   }
@@ -7307,6 +7345,7 @@ export namespace Prisma {
     email: string
     name: string
     imageUrl?: string | null
+    role?: string
     articles?: ArticlesUncheckedCreateNestedManyWithoutAuthorInput
     comments?: CommentUncheckedCreateNestedManyWithoutAuthorInput
   }
@@ -7360,6 +7399,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: StringFieldUpdateOperationsInput | string
     articles?: ArticlesUpdateManyWithoutAuthorNestedInput
     comments?: CommentUpdateManyWithoutAuthorNestedInput
   }
@@ -7370,6 +7410,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: StringFieldUpdateOperationsInput | string
     articles?: ArticlesUncheckedUpdateManyWithoutAuthorNestedInput
     comments?: CommentUncheckedUpdateManyWithoutAuthorNestedInput
   }
