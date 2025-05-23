@@ -1,17 +1,20 @@
+import {
+  AllArticlesPage, 
+} from "@/components/articles/all-articles-page";
+import ArticleSearchInput from "@/components/articles/article-search-input";
 import { Button } from "@/components/ui/button";
 import React, { Suspense } from "react";
 import { Card } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
-import Link from "next/link";
 import { fetchArticleByQuery } from "@/lib/query/fetch-articles";
-import ArticleSearchInput from "@/components/articles/article-search-input";
-import { AllArticlesPage } from "@/components/articles/all-articles-page";
+import Link from "next/link";
+import { Skeleton } from "@/components/ui/skeleton";
+import Navbar2 from "@/components/home/header/nav2/navbar";
 
 type SearchPageProps = {
   searchParams: { search?: string; page?: string };
 };
 
-const ITEMS_PER_PAGE = 3; // Number of items per page
+const ITEMS_PER_PAGE = 3; 
 
 const page: React.FC<SearchPageProps> = async ({ searchParams }) => {
   const searchText = searchParams.search || "";
@@ -27,23 +30,24 @@ const page: React.FC<SearchPageProps> = async ({ searchParams }) => {
     <div className="min-h-screen bg-background">
       <main className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
         {/* Page Header */}
-        <div className="mb-12 space-y-6 text-center">
+        <Navbar2/>
+        <div className="mb-12 space-y-6 text-center mt-5">
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
             All Articles
           </h1>
-          {/* Search Bar */}
+
           <Suspense>
             <ArticleSearchInput />
           </Suspense>
         </div>
-        {/* All article page  */}
+
         <Suspense fallback={<AllArticlesPageSkeleton/>}>
+        
         <AllArticlesPage articles={articles} />
         </Suspense>
-        {/* <AllArticlesPageSkeleton/> */}
-        {/* Pagination */}
+
         <div className="mt-12 flex justify-center gap-2">
-          {/* Prev Button */}
+
           <Link
             href={`?search=${searchText}&page=${currentPage - 1}`}
             passHref
@@ -53,7 +57,7 @@ const page: React.FC<SearchPageProps> = async ({ searchParams }) => {
             </Button>
           </Link>
 
-          {/* Page Numbers */}
+
           {Array.from({ length: totalPages }).map((_, index) => (
             <Link
               key={index}

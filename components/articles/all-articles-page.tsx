@@ -3,6 +3,8 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Search } from "lucide-react";
 import Image from "next/image";
 import { Prisma } from "@prisma/client";
+import Link from "next/link";
+import Navbar2 from "../home/header/nav2/navbar";
 
 type SearchPageProps = {
   articles: Prisma.ArticlesGetPayload<{
@@ -23,13 +25,17 @@ export function AllArticlesPage({ articles }: SearchPageProps) {
   if (articles.length === 0) return <NoSearchResults />;
 
   return (
+
     <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {articles.map((article) => (
         <Card
           key={article.id}
           className="group relative overflow-hidden transition-all hover:shadow-lg"
         >
+          
+
           <div className="p-6">
+            <Link href={`/articles/${article.id}`}>
             {/* Image Container */}
             <div className="relative mb-4 h-48 w-full overflow-hidden rounded-xl">
               <Image
@@ -59,7 +65,9 @@ export function AllArticlesPage({ articles }: SearchPageProps) {
                 {article.createdAt.toDateString()}
               </div>
             </div>
+            </Link>
           </div>
+          
         </Card>
       ))}
     </div>
@@ -69,17 +77,17 @@ export function AllArticlesPage({ articles }: SearchPageProps) {
 export function NoSearchResults() {
   return (
     <div className="flex flex-col items-center justify-center p-8 text-center">
-      {/* Icon */}
+
       <div className="mb-4 rounded-full bg-muted p-4">
         <Search className="h-8 w-8 text-muted-foreground" />
       </div>
 
-      {/* Title */}
+
       <h3 className="text-xl font-semibold text-foreground">
         No Results Found
       </h3>
 
-      {/* Description */}
+
       <p className="mt-2 text-muted-foreground">
         We could not find any articles matching your search. Try a different
         keyword or phrase.

@@ -35,7 +35,7 @@ export async function TopArticles() {
         >
           <div className="p-6">
             <Link href={`/articles/${article.id}`}>
-              {/* Image Container */}
+
               <div className="relative mb-4 h-48 w-full overflow-hidden rounded-xl">
                 <Image
                   src={article.featuredImage as string}
@@ -45,7 +45,7 @@ export async function TopArticles() {
                 />
               </div>
 
-              {/* Author Info */}
+
               <div className="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
                 <Avatar className="h-8 w-8">
                   <AvatarImage src={article.author.imageUrl as string} />
@@ -56,7 +56,7 @@ export async function TopArticles() {
                 <span>{article.author.name}</span>
               </div>
 
-              {/* Article Title */}
+
               <h3 className="mt-4 text-xl font-semibold text-gray-900 dark:text-white">
                 {article.title}
               </h3>
@@ -64,7 +64,7 @@ export async function TopArticles() {
                 {article.category}
               </p>
 
-              {/* Article Meta Info */}
+
               <div className="mt-6 flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
                 <span>{new Date(article.createdAt).toDateString()}</span>
                 <span>{12} min read</span>

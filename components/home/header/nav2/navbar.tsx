@@ -1,5 +1,5 @@
 "use client"
-import ToggleMode from './toggle-mode'
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,9 +7,10 @@ import { Search, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
 import { SignedIn, UserButton } from "@clerk/nextjs";
-import SearchInput from "./search-input";
+import ToggleMode from "../toggle-mode";
 
-export function Navbar() {
+
+export function Navbar2() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -60,7 +61,6 @@ export function Navbar() {
 
           <div className="flex items-center gap-4">
 
-            <SearchInput/>
 
 
             <ToggleMode />
@@ -163,4 +163,4 @@ export function Navbar() {
   );
 }
 
-export default Navbar;
+export default Navbar2;

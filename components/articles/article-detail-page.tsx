@@ -2,11 +2,12 @@ import { Card } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { MessageCircle } from "lucide-react";
 import { Prisma } from "@prisma/client";
+import CommentForm from "../comments/comment-form";
+import CommentList from "../comments/comment-list";
 import { prisma } from "@/lib/prisma"; 
 import LikeButton from "./actions/like-button";
 import { auth } from "@clerk/nextjs/server";
-import CommentForm from "../comments/comment-form";
-import CommentList from "../comments/comment-list";
+import Navbar from "../home/header/navbar";
 
 type ArticleDetailPageProps = {
   article: Prisma.ArticlesGetPayload<{
@@ -48,10 +49,11 @@ export async function ArticleDetailPage({ article }: ArticleDetailPageProps) {
 
   return (
     <div className="min-h-screen bg-background">
+      <Navbar/>
 
       <main className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <article className="mx-auto max-w-3xl">
-          {/* Article Header */}
+
           <header className="mb-12">
             <div className="flex flex-wrap gap-2 mb-4">
               <span className="rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
@@ -79,16 +81,16 @@ export async function ArticleDetailPage({ article }: ArticleDetailPageProps) {
             </div>
           </header>
 
-
+          {/* Article Content */}
           <section
             className="prose prose-lg dark:prose-invert max-w-none mb-12"
             dangerouslySetInnerHTML={{ __html: article.content }}
           />
 
-
+          {/* Article Actions */}
           <LikeButton articleId={article.id} likes={likes} isLiked = {isLiked}/>
 
-
+          {/* Comments Section */}
           <Card className="p-6">
             <div className="flex items-center gap-2 mb-8">
               <MessageCircle className="h-6 w-6 text-primary" />
@@ -97,10 +99,10 @@ export async function ArticleDetailPage({ article }: ArticleDetailPageProps) {
               </h2>
             </div>
 
-
+            {/* Comment Form */}
             <CommentForm articleId={article.id} />
 
-
+            {/* Comments List */}
             <CommentList comments={comments} />
           </Card>
         </article>
