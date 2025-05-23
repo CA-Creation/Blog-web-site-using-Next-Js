@@ -20,9 +20,9 @@ export function Navbar() {
           <div className="flex items-center gap-8">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-2">
-              <span className="text-2xl font-bold">
+              <span className="text-2xl font-bold sm:text-xl">
                 <span className="bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">
-                  Byte
+                  Creative
                 </span>
                 <span className="text-foreground">Code</span>
               </span>
@@ -60,7 +60,10 @@ export function Navbar() {
 
           <div className="flex items-center gap-4">
 
-            <SearchInput/>
+            <div className="hidden sm:block">
+                <SearchInput />
+            </div>
+
 
 
             <ToggleMode />

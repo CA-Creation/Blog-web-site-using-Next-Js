@@ -6,8 +6,8 @@ import { Linkedin, Github, Twitter } from "lucide-react";
 export function BlogFooter() {
   return (
     <footer className="border-t bg-background">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4 lg:grid-cols-5">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16 sm:items-center">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-4 lg:grid-cols-4">
           {/* Branding Section */}
           <div className="md:col-span-2 lg:col-span-2">
             <h2 className="text-2xl font-bold">
@@ -57,7 +57,9 @@ export function BlogFooter() {
           </div>
 
           {/* Newsletter */}
-          <div className="space-y-4 md:col-span-2 lg:col-span-2">
+          
+        </div>
+        <div className="space-y-4 mt-12 text-center md:px-10 lg:px-40 ">
             <h3 className="text-lg font-semibold text-foreground">Stay Updated</h3>
             <form className="flex flex-col gap-4">
               <div className="relative">
@@ -76,7 +78,6 @@ export function BlogFooter() {
               </Button>
             </form>
           </div>
-        </div>
 
         {/* Copyright */}
         <div className="mt-12 border-t pt-8 text-center">
