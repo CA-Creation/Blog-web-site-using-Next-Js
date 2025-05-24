@@ -24,7 +24,7 @@ export function Navbar() {
                 <span className="bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">
                   Creative
                 </span>
-                <span className="text-foreground">Code</span>
+                <span className="text-foreground">Blogs</span>
               </span>
             </Link>
 
